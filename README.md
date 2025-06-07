@@ -1,0 +1,2 @@
+# czbot
+bot para tibia
