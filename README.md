@@ -18,3 +18,4 @@ cd C:\Users\carli\Videos\ <br>
 python user_record_cz.py <br>
 grave o char clickando no map, atacando os monstros com hk, e looteando com hk, ou mouse.<br>
 termine a gravacao no mesmo sqm que inciou, clickando.<br>
+espere o monstros todos colarem no personagem para ir apertando espaço, tortoise leva em torno de 3 turno cada.
