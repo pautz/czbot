@@ -17,3 +17,4 @@ comandos no cmd
 cd C:\Users\carli\Videos\ 
 python user_record_cz.py
 grave o char clickando no map, atacando os monstros com hk, e looteando com hk, ou mouse.
+termine a gravacao no mesmo sqm que inciou, clickando.
