@@ -1,22 +1,10 @@
-# czbot
-bot para tibia
-<br>
-# Instalar Python pelo terminal
-winget install Python.Python
-<br>
-# Verificar a instalação
-python --version
-<br>
-# Instalar as bibliotecas necessárias
+Instale o python no terminal
+curl -o python-installer.exe https://www.python.org/ftp/python/3.12.2/python-3.12.2-amd64.exe
+
+python-installer.exe /quiet InstallAllUsers=1 PrependPath=1 Include_pip=1
+
+Instale as pendencias do .exe
+
 pip install pyautogui keyboard pynput
-<br>
-executar o script<br>
-coloque os arquivos em uma pasta como C:\Users\carli\Videos\ <br>
-abra o cmd<br>
-comandos no cmd<br>
-cd C:\Users\carli\Videos\ <br>
-python user_record_cz.py <br>
-grave o char clickando no map, atacando os monstros com hk, e looteando com hk, ou mouse.<br>
-termine a gravacao no mesmo sqm que inciou, clickando.<br>
-espere o monstros todos colarem no personagem para ir apertando espaço, tortoise leva em torno de 3 turno cada.<br>
-caçe sem follow attack. com battle por proximidade.
+
+agora é só abrir o cz.exe
