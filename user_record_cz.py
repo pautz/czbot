@@ -25,13 +25,16 @@ def on_move(x, y):
     global tempo_anterior
     tempo_atual = time.time()
     intervalo = tempo_atual - tempo_anterior if tempo_anterior else 0
-    tempo_anterior = tempo_atual
-    eventos.append({
-        "tipo": "move",
-        "x": x,
-        "y": y,
-        "intervalo": intervalo
-    })
+
+    # só grava se passou pelo menos 0.05s ou se houve deslocamento maior que 5px
+    if intervalo > 0.05 or not eventos or abs(eventos[-1]["x"] - x) > 5 or abs(eventos[-1]["y"] - y) > 5:
+        tempo_anterior = tempo_atual
+        eventos.append({
+            "tipo": "move",
+            "x": x,
+            "y": y,
+            "intervalo": intervalo
+        })
 
 def on_click(x, y, button, pressed):
     global tempo_anterior
@@ -118,16 +121,13 @@ def reproduzir_eventos(nome_arquivo):
     print("▶️ Executando movimentos em loop... Pressione 'Delete' para parar.")
     while not keyboard.is_pressed("delete"):
         for evento in eventos:
-            time.sleep(evento["intervalo"])
+            time.sleep(min(evento["intervalo"], 0.1))  # limita para não travar
             if evento["tipo"] == "teclado":
                 keyboard.press_and_release(evento["tecla"])
             elif evento["tipo"] == "move":
-                pyautogui.moveTo(evento["x"], evento["y"])
+                pyautogui.moveTo(evento["x"], evento["y"], duration=0.01)
             elif evento["tipo"] == "mouse":
-                if evento["botao"] in ["left", "right", "middle"]:
-                    pyautogui.click(evento["x"], evento["y"], button=evento["botao"])
-                else:
-                    pyautogui.click(evento["x"], evento["y"], button="left")
+                pyautogui.click(evento["x"], evento["y"], button=evento["botao"])
     print("⏹ Reprodução interrompida.")
 
 def menu():
